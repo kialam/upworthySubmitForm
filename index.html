@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">  
+  <title>Upworthy - Submit A Story</title>
+  <!-- Google fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+  <!-- jQuery -->
+  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  
+  <link rel="stylesheet" type="text/css" href="css/parsley.css">
+
+  <!-- Custom styling -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  
+</head>
+<body>
+  <div class="wrapper">
+    <div id="logo"></div>
+    <h1>Got Something Upworthy?</h1>
+    <p>What's the best thing you've seen all week? Anything that we missed? We'd love to know what you think should be featured on Upworthy.</p>
+    <p>Use the form below to submit your favorite stuff to us for consideration. Thanks in advance for your input!</p>
+    <form id="upworthy-form" data-parsley-validate>
+
+      <!-- this required field must be an email, and validation will be run on
+      field change -->
+      <label for="email">Email *</label>
+      <input type="email" name="email" data-parsley-trigger="change" required />
+
+
+      <!-- this field is just required, it would be validated on form submit -->
+      <label for="url">Link *</label>
+      <input type="url" name="url" data-parsley-type="url" required />
+
+      
+      <!-- here, field is not required, it won't throw any error if no checkbox
+      is checked. But if checked, two at least must be checked -->
+      <label for="contentSource">Where did you first see this content?</label>
+      <p class="contentSource">
+        Facebook <input type="checkbox" name="contentSource" value="ski" data-parsley-mincheck="1" />
+        Twitter <input type="checkbox" name="contentSource" value="run" />
+        Youtube <input type="checkbox" name="contentSource" value="eat" />
+        Reddit <input type="checkbox" name="contentSource" value="sleep" />
+        I made it myself <input type="checkbox" name="contentSource" value="read" />
+        Other <input type="checkbox" name="contentSource" value="code" />
+        <textarea name="message" data-parsley-trigger="keyup" data-parsley-minlength="5" data-parsley-maxlength="400" data-parsley-validation-threshold="10" data-parsley-minlength-message = "Please enter at least a 5 caracters long comment.."></textarea>
+      </p>
+
+      <div id="thankYou">
+        <p>Thanks! Your form has been submitted!</p>
+      </div>
+      <input type="submit" />
+    </form>
+    
+  </div><!-- end wrapper -->
+
+
+  <script type="text/javascript">
+  // Show thank you message after successful submission
+  $('#upworthy-form').submit(function(e){
+    e.preventDefault();
+    if ( !$('#upworthy-form').parsley().validate()) {
+      console.log('not submitted'); // debug purposes, remove for production
+    } else {
+      $('#thankYou').fadeIn('slow');
+      console.log('success'); // debug purposes, remove for production
+    }
+  });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Parsley -->
+  <script type="text/javascript" src="js/parsley.min.js"></script>
+</body>
+</html>
