@@ -6,8 +6,6 @@
   <title>Upworthy - Submit A Story</title>
   <!-- Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
-  <!-- jQuery -->
-  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,22 +65,22 @@
   </div><!-- end wrapper -->
 
 
-  <script type="text/javascript">
-  // Show thank you message after successful submission
-  $('#upworthy-form').submit(function(e){
-    e.preventDefault();
-    if ( !$('#upworthy-form').parsley().validate()) {
-      console.log('not submitted'); // debug purposes, remove for production
-    } else {
-      $('#thankYou').fadeIn('slow');
-      console.log('success'); // debug purposes, remove for production
-    }
-  });
-  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <!-- Parsley -->
   <script type="text/javascript" src="js/parsley.min.js"></script>
+  <script type="text/javascript">
+    // Show thank you message after successful submission
+    $('#upworthy-form').submit(function(e){
+      e.preventDefault();
+      if ( !$('#upworthy-form').parsley().validate()) {
+        console.log('not submitted'); // debug purposes, remove for production
+      } else {
+        $('#thankYou').fadeIn('slow');
+        console.log('success'); // debug purposes, remove for production
+      }
+    });
+  </script>
 </body>
 </html>
